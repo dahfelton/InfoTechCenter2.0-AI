@@ -1,7 +1,13 @@
+# Displaying a header for the Gasoline Branch
+print("*****************************************")
+print("Gasoline Branch\n\n")
+
+# Importing necessary libraries
 import random
 from time import sleep
 
 
+# Function that returns the current gas level randomly
 def gas_level_gauge():
     """
     Returns the current gas level.
@@ -10,6 +16,7 @@ def gas_level_gauge():
     return random.choice(gas_level_list)
 
 
+# Function that returns a randomly chosen gas station
 def list_of_gas_stations():
     """
     Returns a randomly chosen gas station.
@@ -18,14 +25,19 @@ def list_of_gas_stations():
     return random.choice(gas_stations)
 
 
+# Function to provide gas level alerts and information about nearby gas stations
 def gas_level_alert():
     """
     Provides gas level alert and information about nearby gas stations.
     """
+    # Generating random distances to gas stations
     miles_to_gas_stations_low = round(random.uniform(1, 25), 1)
     miles_to_gas_stations_quarter_tank = round(random.uniform(25.1, 50), 1)
+
+    # Getting the current gas level
     gas_level_indicator = gas_level_gauge()
 
+    # Displaying appropriate message based on the gas level
     if gas_level_indicator == "Empty":
         print("***WARNING - YOU ARE ON EMPTY***")
         sleep(2.5)
@@ -48,4 +60,5 @@ def gas_level_alert():
         print("Your gas tank is FULL, HORRAYYYYYYY VROOOM VROOOM!!")
 
 
+# Calling the gas level alert function to initiate the alert process
 gas_level_alert()
